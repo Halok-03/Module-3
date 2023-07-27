@@ -32,6 +32,7 @@ describe("tester API users", () => {
     //   .mockResolvedValue(MOCK_DATA_CREATED);
     mockingoose(User).toReturn(MOCK_DATA, "find");
     mockingoose(User).toReturn(MOCK_DATA_CREATED, "save");
+    jest.spyOn(User, "findById").mockResolvedValue(MOCK_DATA[0]);
   });
 
   test("[Users] Get All", async () => {
